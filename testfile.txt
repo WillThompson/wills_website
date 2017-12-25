@@ -1,9 +1,0 @@
-/Users/williamthompson/Documents/Orca/app
-/Users/williamthompson/Documents/Orca
-
-This is the last modification ever.
-Correction.. this is.
-
-No wait... Now it is the last time.
-Here is where I added a group into the permissions, "www-data". 
-I added my 'will' alias to it. Committing now.
