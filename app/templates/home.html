@@ -1,4 +1,9 @@
 {% extends "layout.html" %}
+
+{% block uppertitle %}
+wft
+{% endblock %}
+
 {% block content %}
 <h1>What is this?</h1>
 This is my attempt to learn how to code a few things in flask. This is meant to serve as a springboard from which I can learn some additional coding. Ideally, it would also be possible to write some maths here as well.
@@ -7,7 +12,7 @@ This is the most beautiful equation:
 $$ \exp(i\pi) + 1 = 0.$$
 
 <div style="display: inline;">
-<img src="{{ url_for('static', filename='img/rocks.jpg') }}" width=40%>
-<img src="{{ url_for('static', filename='img/header.jpg') }}" width=40%>
+<img src="{{ url_for('static', filename='img/rocks.jpg') }}" width=48%>
+<img src="{{ url_for('static', filename='img/header.jpg') }}" width=48%>
 </div>
 {% endblock %}
