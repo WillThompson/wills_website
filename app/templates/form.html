@@ -1,29 +1,35 @@
 {% extends "layout.html" %}
 
 {% block uppertitle %}
-wft - input
+mustard + ketchup
 {% endblock %}
 
 {% block content %}
-		{% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>{{ message[1] }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-        <form action="" method="post">
-            {{ form.csrf }}
- 
-            <div class="input text">
-                {{ form.name.label }} {{ form.name }}
-            </div>
- 
-            <div class="input submit">
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
+        <div class="row">
+        <div class="col-sm-6">
+        <h1>Input</h1>
+        <form action="" method="POST">
+         <div class="form-group">
+		  <label for="usr">User Name:</label>
+		  <input type="text" class="form-control" id="usr" name="usr">
+		</div>
+		<div class="form-group">
+		  <label for="name">Phone Number:</label>
+		  <input type="text" class="form-control" id="name" name="name">
+		</div>
+		<div class="form-group">
+		  <label for="typ">Type:</label>
+		  <input type="text" class="form-control" id="typ" name="typ">
+		</div>
+		<div class="input submit">
+		  <input type="submit" value="Submit!" />
+        </div>
+    	</form>
 
+		</div>
+		<div class="col-sm-6">
+         <h1>Hello</h1>
+         My name is William. This mathematics $x^{2} + y^{2} = z^{2}$ is cool. But maybe this will be cooler $$\int_{0}^{\infty}\sin(x)\,dP(x) \leq 1.$$
+		</div>
+    	</div>
 {% endblock %}

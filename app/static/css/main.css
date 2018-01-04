@@ -44,8 +44,21 @@ div.jumbo {
 
 .jumbotron {
   background-color: #17E4C1;
+  color: #FFFFFF;
 }
- 
+
+.jumbotron .display-1{
+  font-family: 'Fredericka the Great', cursive;
+}
+
+.jumbotron h1{
+  color: #FFFFFF;
+}
+
+h1{
+  color: #17E4C1;
+}
+
 h2 {
   font-size: 3em;
   margin-top: 40px;
