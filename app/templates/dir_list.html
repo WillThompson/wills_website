@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block uppertitle %}
+dir list
+{% endblock %}
+
+{% block content %}
+        <div class="row">
+        <div class="col-sm-6">
+        <h1>What is this?</h1>
+        <h3>What it is not</h3>
+        This is not an invitation to look at my files. Pervs..
+		</div>
+		<div class="col-sm-6">
+         <h1>File List</h1>
+         <ul>
+         {% for i in var1: %}
+        	<li>{{ i }}</li>
+		 {% endfor %}
+		</ul>
+		</div>
+    	</div>
+{% endblock %}

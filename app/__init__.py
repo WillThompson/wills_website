@@ -32,5 +32,13 @@ def enter():
 
  	return render_template('form.html',form=form)
 
+@app.route('/dir_list/',methods=['GET', 'POST'])
+def list_dir():
+
+	from os import listdir
+	from os.path import isfile, join
+	onlyfiles = [f for f in listdir(os.getcwd()) if isfile(join(os.getcwd(), f))]
+ 	return render_template('dir_list.html',var1=onlyfiles)
+
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
