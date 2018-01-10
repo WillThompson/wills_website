@@ -38,7 +38,7 @@ def list_dir():
 	from os import listdir
 	from os.path import isfile, join
 	onlyfiles = [f for f in listdir(os.getcwd()) if isfile(join(os.getcwd(), f))]
- 	return render_template('dir_list.html',var1=onlyfiles)
+ 	return render_template('dir_list.html',var1=onlyfiles,var2=os.getcwd())
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
