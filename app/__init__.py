@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
 
-@app.route('/form/',methods=['GET', 'POST'])
+@app.route('/form/')
 def enter():
 
 	plt.plot([1,2,3,4])
