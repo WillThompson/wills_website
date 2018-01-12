@@ -5,13 +5,24 @@ wft
 {% endblock %}
 
 {% block content %}
+<h1>Who am I?</h1>
+My name is Will. I am a mathematician interested in learning how to make some simple web applications. I am a fan of python for its high ease-of-use to power ratio. Hence, I am using flask to code this little website.
+
+It is my intention that the things I write here can be of use for fun but maybe for something useful at some point.
+<br>
 <h1>What is this?</h1>
 This is my attempt to learn how to code a few things in flask. This is meant to serve as a springboard from which I can learn some additional coding. Ideally, it would also be possible to write some maths here as well.
 
-This is the most beautiful equation:
-$$ \exp(i\pi) + 1 = 0.$$
-If I wanted to write some much nicer looking math, it might look like this:
-$$ 
-\int_{-\infty}^{\infty}\exp(-x^{2})\,dx = \sqrt{\pi}.
-$$
+<form class="form" method="post" action="">
+<div class="form-group">
+    <label for="first">First word</label>
+    <input type="text" class="form-control" id="first" name="test1">
+</div>
+<div class="form-group">
+    <label for="second">Second Word</label>
+    <input type="text" class="form-control" id="second" name="test2" >
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 {% endblock %}

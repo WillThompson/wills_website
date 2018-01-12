@@ -8,29 +8,33 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def home():
-  return render_template('home.html')
+	if request.method == 'POST':
+		t1 = request.form['test1']
+		t2 = request.form['test2']
+		return render_template('home.html', t1=t1, t2=t2)
+	return render_template('home.html')
 
 class ReusableForm(Form):
 	name = TextField('Name:', validators=[validators.required()])
 
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+
 @app.route('/form/',methods=['GET', 'POST'])
 def enter():
 
-	form = ReusableForm(request.form)
-	print(form.errors)
+	plt.plot([1,2,3,4])
+	plt.ylabel('some numbers')
+	figfile = BytesIO()
+	plt.savefig(figfile, format='png')
+	figfile.seek(0)
+	figdata_png = base64.b64encode(figfile.getvalue())
+	plot_url = figdata_png
 
-	if request.method == 'POST':
-		usr = request.form['usr']
-		name = request.form['name']
-		typ = request.form['typ']
-
-		print(usr + name + typ)
-		print(os.getcwd())
-		call("echo "+ usr + " -- " + name + " -- " + typ +" > filename.txt" , shell=True) 
-
- 	return render_template('form.html',form=form)
+ 	return render_template('form.html', plot_url=plot_url)
 
 @app.route('/dir_list/',methods=['GET', 'POST'])
 def list_dir():
