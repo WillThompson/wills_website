@@ -1,17 +1,9 @@
 {% extends "layout.html" %}
 
 {% block uppertitle %}
-form test
+A plot is rendered
 {% endblock %}
 
 {% block content %}
-        <div class="row">
-        <div class="col-sm-6">
-        <h1>Input</h1>
-		</div>
-		<div class="col-sm-6">
-         <h1>Hello</h1>
-         <img src="data:image/png;base64, {{ plot_url }}" width=100%>
-		</div>
-    	</div>
+        <img src="data:image/png;base64, {{ plot_url }}" width=100%>
 {% endblock %}
