@@ -19,22 +19,6 @@ def home():
 class ReusableForm(Form):
 	name = TextField('Name:', validators=[validators.required()])
 
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
-
-@app.route('/form/')
-def enter():
-
-	plt.plot([1,2,3,4])
-	plt.ylabel('some numbers')
-	figfile = BytesIO()
-	plt.savefig(figfile, format='png')
-	figfile.seek(0)
-	figdata_png = base64.b64encode(figfile.getvalue())
-	plot_url = figdata_png
-
- 	return render_template('form.html', plot_url=plot_url)
 
 @app.route('/dir_list/',methods=['GET', 'POST'])
 def list_dir():
