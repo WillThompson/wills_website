@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
+## MAIN PAGE
 @app.route('/', methods=['GET', 'POST'])
 def home():
 	if request.method == 'POST':
@@ -16,15 +17,14 @@ def home():
 		return redirect(url_for('help', input1=data1, input2=data2))
 	return render_template('home.html')
 
-class ReusableForm(Form):
-	name = TextField('Name:', validators=[validators.required()])
+## ABOUT ME
+@app.route('/aboutme', methods=['GET', 'POST'])
+def about():
+	return render_template('aboutme.html')
 
-@app.route('/help?input1=<input1>&input2=<input2>',methods=['GET', 'POST'])
+@app.route('/help?input1=<input1>+input2=<input2>',methods=['GET', 'POST'])
 def help(input1,input2):
  	return render_template('dir_list.html',input1=input1,input2=input2)
-
-if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True)
 
 
 @app.route('/dir_list/',methods=['GET', 'POST'])
