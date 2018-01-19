@@ -22,6 +22,10 @@ def home():
 def about():
 	return render_template('aboutme.html')
 
+@app.route('/bryn')
+def bryn():
+	return render_template('bryn.html')
+
 @app.route('/help?input1=<input1>+input2=<input2>',methods=['GET', 'POST'])
 def help(input1,input2):
  	return render_template('dir_list.html',input1=input1,input2=input2)
