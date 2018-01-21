@@ -29,7 +29,7 @@ def compute():
 
 import StringIO
 import base64
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 @app.route('/response?data=<data>', methods=['GET', 'POST'])
 def output(data):
 	data = [float(x) for x in data.split(",")]
