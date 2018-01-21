@@ -34,18 +34,20 @@ import base64
 def output(data):
 	data = [float(x) for x in data.split(",")]
 
-	img = StringIO.StringIO()
+	#img = StringIO.StringIO()
 
-	data = np.random.normal(0,1,100)
-	plt.clf()
-	makeplot(data)
+	#data = np.random.normal(0,1,100)
+	#plt.clf()
+	#makeplot(data)
 
-	plt.savefig(img, format='png')
-	img.seek(0)
+	#plt.savefig(img, format='png')
+	#img.seek(0)
 
-	plot_url = base64.b64encode(img.getvalue())
+	#plot_url = base64.b64encode(img.getvalue())
 
- 	return render_template('output.html',plot_url = plot_url)
+	op = np.mean(data)
+
+ 	return render_template('output.html',plot_url = data)
 
 
 def makeplot(data):
