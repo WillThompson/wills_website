@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block uppertitle %}
+Results
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-6">
+		The following is a histogram of the data that you put in the last page.
+	</div>
+    <div class="col-sm-6">
+		<img src="data:image/png;base64, {{ plot_url }}" width=100%>
+	</div>
+</div>
+This is the end of the column
+
+{% endblock %}

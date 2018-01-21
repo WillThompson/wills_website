@@ -4,22 +4,24 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-sm-6">
-		<h1>Who am I?</h1>
-		My name is Will. I am a Mathematician living in Vancouver, BC.<br><br>
+<div>
+	<h1> Some of my interests</h1>
+	Stochastic differential equations (SDEs) are used in many disciplines, including physics, biology and finance, to model the behaviour of continuously changing quantities that are subject to random (unpredictable) forces, such as option prices, the electrical potential across the membranes of neurons, and the dynamics of microscopic particles in the presence of thermal fluctuations. <br><br>
 
-		I obtained my Ph.D. at UBC in Applied Mathematics where I studied the effects of noise (random effects) on nonlinear dynamical systems. I have a real job now, but remain curious about various topics in math, statistics, and science (primarily physics).<br><br>
+        One of the most basic stochastic processes that can be modelled by a SDE is the Ornstein-Uhlenbeck process, $x_{t}$, which satisfies the following SDE:
+        $$dx_{t} = -\mu\,x_{t}\,dt + \sigma\,dW_{t}, \quad \mu > 0, \quad t \geq 0.$$
+        The term $dW_{t}$ represents a Gaussian white noise forcing, which essentially means that, over a short time interval $[t_{1},t_{2}]$, the trajectory of the system is perturbed by a normal random variable with mean zero and variance $|\,t_{2} - t_{1}\,|$. This process has found use in essentially every field where continuous-time models with random fluctuations are appropriate.
 
-		To balance out my academic credentials I have started taking an interest in coding (as many people in similar fields as me do) and creating web tools. 
-	</div>
-	<div class="col-sm-6">
-		<h1>What is this?</h1>
-		To learn how to make some simple web applications, I have converted an old laptop into a little server. <br><br>
+        When talking about the solutions to SDEs one has to consider, not one, but two types of solutions. The <i>strong</i> solution and the <i>weak</i> solution. The strong solution refers a particular trajectory for the variable $x_{t}$ for a given realization of the white noise process, $W_{t}$. In the case of the Ornstein-Uhlenback process above, the strong solution can be written as
+        $$ x_{t} = x_{0}\exp(-\mu t) + \sigma\exp(-\mu t)\int_{0}^{t}\exp(\mu s) dW_{s}. $$
 
-		I am a fan of python for its high ease-of-use to power ratio. Hence, I am using flask to code this little website. It is my intention that the things I write here can be of use for fun but maybe for something useful at some point.
+        The weak solution (which I personally find more interesting) refers to the probability distribution, $\rho = \rho(x,t)$, of all possible paths $x_{t}$. For the OU process, the weak solution (i.e. the probability distribution for $x_{t}$) satisfies the partial differential equation
+        $$
+        \frac{\partial \rho}{\partial t} = \mu\frac{\partial \rho}{\partial x} + \frac{\sigma^{2}}{2}\frac{\partial^{2}\rho}{\partial x^{2}}, \quad \rho(x,0) = \delta(x - x_{0}).
+        $$
+        Solving this PDE problem gives the probability density function for $x_{t}$, which is a Gaussian with mean and variance that evolve in time. In the limit $t \to \infty$, it can be shown that $$\rho \to \sqrt{\frac{\mu}{\pi \sigma^{2}}}\exp(-\mu x^{2}/\sigma^{2}).$$
 
-	</div>
+        Closed-form strong solutions can be very difficult to derive, but weak solutions can be derived for many SDE models.
 </div>
 
 
