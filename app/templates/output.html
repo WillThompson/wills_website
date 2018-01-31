@@ -7,13 +7,12 @@ Results
 {% block content %}
 <div class="row">
 	<div class="col-sm-6">
-		The following is a histogram of the data that you put in the last page.
+		<b>Frequency Test p-value</b><br>
+		{{pval}}
 	</div>
-    <!--<div class="col-sm-6">
-		<img src="data:image/png;base64, {{ plot_url }}" width=100%>
-	</div>-->
-	{{plot_url}}
+    <div class="col-sm-6">
+		This is the p-value from a simple frequency test run on those numbers you entered before.
+	</div>
 </div>
-This is the end of the column
 
 {% endblock %}
