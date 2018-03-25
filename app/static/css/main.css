@@ -81,12 +81,12 @@ h3 {
 }
 
 a {
-  color: #17E4C1;
+  color: #553399;
 }
 
 a:hover{
-  color: #17E4C1;
-  text-decoration: underline;
+  color: #9977CC;
+  text-decoration: none;
 }
 
 ul{
