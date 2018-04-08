@@ -23,44 +23,5 @@
 
 	</div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-		<h1>Publications</h1>
-        <ul>
-        <li><b>W. F. Thompson</b>, R. Kuske, and A. Monahan. <a href="https://aip.scitation.org/doi/abs/10.1063/1.4985675?journalCode=cha">Reduced &alpha;-stable dynamics for multiple time scale systems forced with correlated additive and multiplicative Gaussian white noise</a>. <i>Chaos</i>, (27) 113105, Nov 2017.
-        </li>
-        <li><b>W. F. Thompson</b>, R. Kuske, and A. Monahan. <a href="http://epubs.siam.org/doi/abs/10.1137/140990632">Stochastic averaging of systems with multiple time scales forced with &alpha;-stable noise</a>. <i>SIAM Multi. Model. Simul.</i>, 13(4), 1194–1223, Oct. 2015.
-        </li>
-        <li> <b>W. F. Thompson</b>, A. Monahan, and D. Crommelin. <a href="http://journals.ametsoc.org/doi/abs/10.1175/JAS-D-13-0260.1">Parametric estimation of the stochastic dynamics of sea surface winds</a>. <i>AMS Jour. Atmos. Sci.</i>, 71(9), 3465-3483, Sep. 2014.
-        </li>
-        <li><b>W. F. Thompson</b>, R. Kuske, and Y.-X. Li. <a href="http://www.aimsciences.org/journals/displayArticlesnew.jsp?paperID=7267">Stochastic phase dynamics of noise driven synchronization of two conditional coherent oscillators</a>. <i>DCDS-A</i>, 32(8), 2971-2995, Aug. 2012.
-        </li>
-        <li> A. G. Fowler, <b>W. F. Thompson</b>, Z. Yan, A. M. Stephens, B. L. T. Plourde, and F. K. Wilhelm. <a href="http://www.nrcresearchpress.com/doi/abs/10.1139/p07-203?journalCode=cjp">Long-range coupling and scalable architecture for superconducting flux qubits</a>. <i>Can. Jour. of Phys.</i>, 86(4), 533-540, 2008.
-        </li>
-        </ul>
-	</div>
-
-	<div class="col-sm-12">
-		<h1> Some of my interests</h1>
-		<h3> Stochastic Differential Equations</h3>
-
-		Stochastic differential equations (SDEs) are used in many disciplines to model the behaviour of continuously changing quantities that are subject to random (unpredictable) forces, such as option prices, the electrical potential across the membranes of neurons, and the dynamics of microscopic particles. <br><br>
-
-		One of the most basic and widely-used stochastic processes that can be modelled by a SDE is the <i>Ornstein-Uhlenbeck process</i>, $x_{t}$, which satisfies the following SDE:
-		$$dx_{t} = -\mu\,x_{t}\,dt + \sigma\,dW_{t}, \quad \mu > 0, \quad t \geq 0.$$
-		The term $dW_{t}$ represents a Gaussian white noise forcing, which essentially means that, over a miniscule time interval $dt > 0$, the trajectory of the system is perturbed by a normal random variable with mean zero and variance $dt$.
-
-		There are not one, but two types of solutions to every stochastic differential equation: The <i>strong</i> solution and the <i>weak</i> solution. The strong solution refers a particular trajectory for the variable $x_{t}$ for a given realization of the white noise process, $W_{t}$. In the case of the Ornstein-Uhlenback process above, the strong solution can be written as
-		$$ x_{t} = x_{0}\exp(-\mu t) + \sigma\exp(-\mu t)\int_{0}^{t}\exp(\mu s)\,dW_{s}. $$
-
-		The weak solution refers to the probability distribution, $\rho = \rho(x,t)$, of all possible paths $x_{t}$. It is the solution to the problem:
-		$$
-		\frac{\partial \rho}{\partial t} = \mu\frac{\partial \rho}{\partial x} + \frac{\sigma^{2}}{2}\frac{\partial^{2}\rho}{\partial x^{2}}, \quad \rho(x,0) = \delta(x - x_{0}).
-		$$
-		Solving this problem gives the probability density function for $x_{t}$, which is a Gaussian density function with mean and variance that evolve in time. In the limit $t \to \infty$, it can be shown that $$\rho \to \sqrt{\frac{\mu}{\pi \sigma^{2}}}\exp(-\mu x^{2}/\sigma^{2}).$$
-
-	</div>
-</div>
-
 
 {% endblock %}
