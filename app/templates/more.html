@@ -23,22 +23,15 @@
 
 	<div class="col-sm-12">
 		<h1> Some of my interests</h1>
-		<h3> Stochastic Differential Equations</h3>
+		<b>Stochastic Differential Equations</b><br>
 
 		Stochastic differential equations (SDEs) are used in many disciplines to model the behaviour of continuously changing quantities that are subject to random (unpredictable) forces, such as option prices, the electrical potential across the membranes of neurons, and the dynamics of microscopic particles. <br><br>
 
-		One of the most basic and widely-used stochastic processes that can be modelled by a SDE is the <i>Ornstein-Uhlenbeck process</i>, $x_{t}$, which satisfies the following SDE:
-		$$dx_{t} = -\mu\,x_{t}\,dt + \sigma\,dW_{t}, \quad \mu > 0, \quad t \geq 0.$$
-		The term $dW_{t}$ represents a Gaussian white noise forcing, which essentially means that, over a miniscule time interval $dt > 0$, the trajectory of the system is perturbed by a normal random variable with mean zero and variance $dt$.
+		A generic SDE process is given by the following equation:
+		$$ dx_{t} = f(x_{t},t)\,dt + \sigma(x_{t},t)\,dW_{t}, \quad t \geq 0,  $$
+		where the process $x_{t}$ is modelled by this equation. In a nutshell, this equation describes the change in the process $x_{t}$, $dx_{t}$ as the sum of a deterministic component $f\,dt$ and a random component $\sigma\,dW_{t}$. The term $dW_{t}$ typically represents a Gaussian white noise forcing, which essentially means that, over a miniscule interval of time, $dt > 0$, the trajectory of the system is perturbed by a Gaussian random variable with mean zero and variance $dt$.<br><br>
 
-		There are not one, but two types of solutions to every stochastic differential equation: The <i>strong</i> solution and the <i>weak</i> solution. The strong solution refers a particular trajectory for the variable $x_{t}$ for a given realization of the white noise process, $W_{t}$. In the case of the Ornstein-Uhlenback process above, the strong solution can be written as
-		$$ x_{t} = x_{0}\exp(-\mu t) + \sigma\exp(-\mu t)\int_{0}^{t}\exp(\mu s)\,dW_{s}. $$
-
-		The weak solution refers to the probability distribution, $\rho = \rho(x,t)$, of all possible paths $x_{t}$. It is the solution to the problem:
-		$$
-		\frac{\partial \rho}{\partial t} = \mu\frac{\partial \rho}{\partial x} + \frac{\sigma^{2}}{2}\frac{\partial^{2}\rho}{\partial x^{2}}, \quad \rho(x,0) = \delta(x - x_{0}).
-		$$
-		Solving this problem gives the probability density function for $x_{t}$, which is a Gaussian density function with mean and variance that evolve in time. In the limit $t \to \infty$, it can be shown that $$\rho \to \sqrt{\frac{\mu}{\pi \sigma^{2}}}\exp(-\mu x^{2}/\sigma^{2}).$$
+		My interest in these processes is driven by my interest in differential equations in general, and seeing what you can learn about the time-varying processes in the presence of unpredictable factors.
 
 	</div>
 </div>
