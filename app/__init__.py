@@ -12,8 +12,18 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 def home():
 	return render_template('home.html')
 
-## MORE ABOUT ME
-@app.route('/more')
+## INTERESTS
+@app.route('/interests/')
+def interests():
+	return render_template('interests.html')
+
+## PUBLICATIONS
+@app.route('/publications/')
+def publications():
+	return render_template('publications.html')
+
+## PUBLICATIONS
+@app.route('/more/')
 def more():
 	return render_template('more.html')
 
