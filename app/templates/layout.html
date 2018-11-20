@@ -64,7 +64,7 @@
         <div class="flash container">{{ message }}</div>
       {% endfor %}
       {% endif %}
-    <h1>{% block uppertitle %}{% endblock %}</h1>
+    {% block uppertitle %}{% endblock %}
     <div class="page-content">
 	    {% block content %}
       {% endblock %}

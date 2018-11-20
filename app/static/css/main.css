@@ -51,8 +51,12 @@ div.jumbo {
   font-family: 'Racing Sans One', cursive;
 }
 
-.jumbotron h1{
+h1 .jumbotron{
   color: #FFFFFF;
+}
+
+.navbar-brand h1 {
+  margin-top: 0em;
 }
 
 .jumbotron p{
@@ -62,6 +66,7 @@ div.jumbo {
 h1{
   color: #17E4C1;
   font-family: 'Racing Sans One', cursive;
+  margin-top: 0.5em;
 }
 
 h2 {
