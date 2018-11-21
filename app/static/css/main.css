@@ -141,6 +141,10 @@ ul li{
   color:#FFFFFF;
  }
 
+ .nav-link a{
+  background-color: rgba(0,0,0,0);
+ }
+
 .page-content li{
   margin-bottom: 0.5em;
 }
