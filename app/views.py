@@ -1,12 +1,5 @@
-import os
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
-
-DEBUG=True
-app = Flask(__name__)
-app.config.from_object(__name__)
-app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
-app.config['USERNAME'] = 'will'
-app.config['PASSWORD'] = 'passcode'
+from app import app
 
 
 ## MAIN PAGE
