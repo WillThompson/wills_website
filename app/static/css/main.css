@@ -31,7 +31,7 @@ header h1.logo:hover {
 }
  
 /*
- *
+ * COLOURS TO SAVE: #17E4C2;
  */
  
 div.jumbo {
@@ -43,7 +43,7 @@ div.jumbo {
 }
 
 .jumbotron {
-  background-color: #17E4C1;
+  background-color: #ffd23f;
   color: #FFFFFF;
 }
 
@@ -64,7 +64,7 @@ h1 .jumbotron{
 }
 
 h1{
-  color: #17E4C1;
+  color: #ffd23f;
   font-family: 'Racing Sans One', cursive;
   margin-top: 0.5em;
 }
@@ -80,16 +80,16 @@ h3 {
   font-size: 1.5em;
   margin-top: 30px;
   letter-spacing: 0px;
-  color: #17E4C1;
+  color: #ffd23f;
   font-weight: 400;
 }
 
 a {
-  color: #553399;
+  color: #700353;
 }
 
 a:hover{
-  color: #9977CC;
+  color: #922575;
   text-decoration: none;
 }
 
@@ -124,13 +124,13 @@ ul li{
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
-    border-color: #17E4C1 !important; 
-    background-color: #17E4C1!important;
+    border-color: #ffd23f !important; 
+    background-color: #ffd23f!important;
     color: #ffffff !important;
 }
 
 .navbar{
-  background-color: #17E4C1;
+  background-color: #ffd23f;
  }
 
  .navbar h1{
