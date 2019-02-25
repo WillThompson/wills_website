@@ -22,29 +22,5 @@ def publications():
 def more():
 	return render_template('more.html')
 
-## LOGIN
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    if request.method == 'POST':
-        if request.form['username'] != app.config['USERNAME']:
-            error = 'Invalid username'
-        elif request.form['password'] != app.config['PASSWORD']:
-            error = 'Invalid password'
-        else:
-            session['logged_in'] = True
-            flash('You were logged in')
-            return redirect(url_for('home'))
-    if error:
-    	flash(error)
-    return render_template('login.html')
-
-## LOGOUT
-@app.route('/logout')
-def logout():
-    session.pop('logged_in', None)
-    flash('You were logged out')
-    return redirect(url_for('home'))
-
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
