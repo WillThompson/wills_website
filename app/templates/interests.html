@@ -13,10 +13,81 @@
 		Stochastic differential equations (SDEs) are used in many disciplines to model the behaviour of continuously changing quantities that are subject to random (unpredictable) forces, such as option prices, the electrical potential across the membranes of neurons, and the dynamics of microscopic particles. <br><br>
 
 		A generic SDE process, $x_{t}$, can be modelled by the following equation:
-		$$ dx_{t} = f(x_{t},t)\,dt + \sigma(x_{t},t)\,dW_{t}, \quad t \geq 0.  $$
+		$$ dx_{t} = f(x_{t},t)\,dt + \sigma(x_{t},t)\,dW_{t}, \quad t \geq 0. $$
 		This equation describes the change in $x_{t}$ , denoted $dx_{t}$, over a miniscule time interval $dt \to 0^{+}$ as the sum of a deterministic component $f\,dt$ and a random component $\sigma\,dW_{t}$. The term $dW_{t}$ typically represents a Gaussian white noise forcing, which essentially means that, over time change $dt$, the trajectory of the system is perturbed by a Gaussian random variable with mean zero and variance $dt$. The effect of this perturbation is scaled by the quantity $\sigma$ which can be state-dependent.<br><br>
 
-		My interest in these processes is driven by my interest in differential equations in general, and seeing what you can learn about time-varying processes in the presence of unpredictable factors.	
+		My interest in these processes is driven by my interest in differential equations in general, and seeing what you can learn about time-varying processes in the presence of unpredictable factors.<br><br>
+
+		<div id="accordion">
+		  <div class="card">
+		    <div class="card-header" id="headingOne">
+		    	<h5 class="mb-0">
+		        	<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+		          		A central limit theorem for fast-slow stochastic processes
+		        	</button>
+		    	</h5>	
+		    </div>
+
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      			<div class="card-body">
+
+					An extension of work that I did for my thesis:
+
+					Let $0 < \epsilon \ll 1$. Consider a fast-slow stochastic differential equation system
+					\begin{align}
+					dX_{t} &= \epsilon^{-\rho}Y_{t/\epsilon}\,dt, \quad X_{0} = x_{0}, \quad t \ge 0 \\
+					dY_{\tau} &= -{\mu}Y_{\tau}\,d\tau + dN_{\tau}^{(\lambda,\nu)}, \quad Y_{0} = y_{0}, \quad \mu > 0
+					\end{align}
+					where $dN_{t}$ are the increments of a compound Poisson process, with measure $\nu$ and rate, $\lambda$. Notice the time scaling of the process $Y$ in the equation for $X$. Expressing the dynamics of this system on the same time scale, $t = \epsilon\tau$, we get
+					\begin{align}
+					dX_{t} &= \epsilon^{-\rho}Y_{t}\,dt, \quad dY_{t} = -\frac{\mu}{\epsilon}Y_{t}\,dt + dN_{t}^{(\lambda/\epsilon,\nu)}.
+					\end{align}
+
+					The differential Chapman-Kolmogorov equation (a more general version of the Fokker-Planck equation) for this system describes the time evolution of the probability density function for $X$ and $Y$, $\Pi$:
+					\begin{align}
+					\Pi_{t} &+ \epsilon^{-\rho}y\Pi_{x} - \epsilon^{-1}\mu(y\Pi)_{y} \\ 
+					&= \lim_{\Delta \to 0}\frac{1}{\Delta}\left(\int_{-\infty}^{\infty}\frac{\lambda}{\epsilon} \Delta\nu(y - z)\Pi(x,z)\,dz - \frac{\lambda}{\epsilon} \Delta \Pi(x,y) \right), \\
+					&=  \frac{\lambda}{\epsilon}\left(\int_{-\infty}^{\infty}\nu(y - z)\Pi(x,z)\,dz - \Pi(x,y) \right)
+					\end{align}
+					Applying the limit and taking the spatial Fourier transform of the above equation gives a quasi-linear PDE for the characteristic function, $\psi = \iint\Pi(x,y,t)\,\exp(ikx + ily)\,dxdy$:
+					\begin{equation}
+					\psi_{t} = \left(\epsilon^{-\rho}k - \epsilon^{-1}\mu l \right) \psi_{l} + \epsilon^{-1}\lambda\left(\phi(l) - 1 \right)\psi
+					\end{equation}
+					where $\phi(l) = \int_{\mathbb{R}}\exp(ily)\nu(y)\,dy$ is the Fourier transform of the measure $\nu$. Using the method of characteristics, we can show that the solution for $\psi$ is given by
+					\begin{align}
+					\psi(k,l,t) &= \exp\left\{\frac{\lambda}{\epsilon} \left( \int_{0}^{t} \phi(\Gamma(s;k,l))\,ds\right) - \frac{\lambda t}{\epsilon} \right\},\\ \Gamma(s;k,l) &= \frac{\epsilon^{1 - \rho}k}{\mu} + \left(l - \frac{\epsilon^{1-\rho}k}{\mu} \right)\exp\left(-\frac{\mu}{\epsilon} s\right)
+					\end{align}
+					For values of $s = O(1)$, we have  $\Gamma(s;k,l) \sim \frac{\epsilon^{1-\rho}}{\mu}k$, as the exponential term becomes negligible, and we obtain
+					\begin{align}
+					\psi(k,l,t) &\sim \exp\left\{\frac{\lambda}{\epsilon} \left( \int_{0}^{t} \phi\left(\epsilon^{1-\rho}\mu^{-1}k\right)\,ds\right) - \frac{\lambda t}{\epsilon} \right\} \\
+					&= \exp\left\{\frac{\lambda t}{\epsilon}\left[\phi\left(\epsilon^{1-\rho}\mu^{-1}k\right) - 1\right]\right\}.
+					\end{align}
+					For $\rho < 1$, it is appropriate to use an expansion approximation for $\phi\left(\epsilon^{1-\rho}\mu^{-1}k\right)$ to obtain a limiting behaviour for $\psi$. For simplicity, we assume the measure $\nu$ has mean zero in all the examples that we consider.<br><br>
+
+					If we consider the case where 
+					\begin{equation}
+					\nu(y) = \frac{\delta(y + a) + \delta(y - a)}{2} = \begin{cases} 1/2 &\mbox{if $|y| = a$} \\ 0 &\mbox{otherwise} \end{cases}
+					\end{equation}
+					then $\phi(l) = \frac{1}{2}\left[\exp(-ila) + \exp(ila)\right] = \cos(la)$, and so $\psi$ above reduces to 
+					\begin{equation}
+					\psi(k) \sim \exp\left\{\frac{\lambda t}{\epsilon} \left[\cos\left(\frac{\epsilon^{1-\rho}ak}{\mu}\right) - 1\right]\right\}.
+					\end{equation}
+					In the limit of small $\epsilon$, we have that
+					\begin{align}
+					\psi(k) &\sim \exp\left\{\frac{\lambda t}{\epsilon} \left[-\frac{(\epsilon^{1-\rho}a\mu^{-1}k)^{2}}{2} + O(\epsilon^{4-4\rho}k^{4})\right]\right\} 
+					\\ &= \exp\left\{-\frac{\lambda \epsilon^{1-2\rho}a^{2}k^{2}t}{2\mu^{2}} + O(\lambda \epsilon^{3-4\rho}k^{4})\right\}.
+					\end{align}
+					If we choose $\lambda = \epsilon^{2\rho - 1}\lambda_{0}$, then we have
+					\begin{equation}
+					\psi(k) \sim \exp\left\{-\frac{a^{2}\lambda_{0}k^{2}t}{2\mu^{2}} + O(\epsilon^{2-2\rho}k^{4})\right\}.
+					\end{equation}
+					This indicates that $X_{t}$ is distributed as a Gaussian with variance $a^{2}\lambda_{0}t/\mu^{2}$ in the limit $\epsilon \to 0$ and hence $$dX_{t} = \epsilon^{-\rho}Y_{t/\epsilon}\,dt \underset{D}{\sim} \left(\frac{a\sqrt{\lambda_{0}}}{\mu}\right)\,dW_{t}.$$
+
+					This is essentially a "central limit theorem" for stochastic differential equations, showing that in the limit of large time scale separation between the processes $X$ and $Y$, we can effectively model $X$ (in the statistical sense) without needing to explicitly model the behaviour of $Y$ and that the limiting behaviour of $X$ has a Gaussian character.
+
+				</div>
+		    </div>
+		  </div>
 
 		<h3>Randomness</h3>
 
