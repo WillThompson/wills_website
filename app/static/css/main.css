@@ -152,5 +152,19 @@ ul li{
 .flash{
   background-color: #553399;
   color: #FFFFFF;
+}
 
+.card-header{
+  background-color: #FFFFFF;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #700353;
+    border-radius: 0;
+}
+
+.btn-link:hover{
+  color: #922575;
+  text-decoration: none;
 }
