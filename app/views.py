@@ -17,10 +17,5 @@ def interests():
 def publications():
 	return render_template('publications.html')
 
-## PUBLICATIONS
-@app.route('/more/')
-def more():
-	return render_template('more.html')
-
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
